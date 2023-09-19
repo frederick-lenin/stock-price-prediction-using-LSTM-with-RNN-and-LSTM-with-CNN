@@ -2,12 +2,12 @@
 
 ## This is my final year project
 
-ABSTRACT:
+## ABSTRACT:
 In the current financial sector, predicting stock prices is a key activity, and most of the prediction algorithms are typically based on machine learning and deep learning algorithms. Nonstationary time series data are challenging for these algorithms to handle, though. For predicting stock price, deep learning methods including convolutional neural networks (CNNs), recurrent neural networks (RNNs), and long short-term memory (LSTM) networks have been extensively used. Because they can store historical data, LSTMs are extremely effective prediction methods. We suggested a fresh deep learning prediction technique. This study suggests a technique for forecasting changes in stock prices using recently updated stock prices. We evaluate variations in accuracy while concatenating two alternative top algorithms, LSTM-RNN and LSTM-CNN.
 Keywords – Stock price; LSTM; RNN; CNN; deep learning
 
-INTRODUCTION
-1.1 MOTIVATION OF WORK
+## INTRODUCTION
+## 1.1 MOTIVATION OF WORK
 The motivation behind using LSTM (Long Short-Term Memory) and RNN (Recurrent Neural Network) models for stock price prediction, as well as combining LSTM with CNN (Convolutional Neural Network), is to 
 leverage the power of deep learning to capture and learn from the sequential and temporal patterns present in stock market data. Here are a few reasons why these models are commonly used for stock price 
 prediction: 
@@ -17,7 +17,7 @@ prediction:
 4. Feature extraction: CNNs are widely used in computer vision tasks for their ability to automatically extract relevant features from raw data. Similarly, in stock market prediction, CNNs can be used to extract relevant features from historical price data, allowing the LSTM model to focus on capturing temporal dependencies.
 5. Handling high-dimensional data: Stock market data often consists of multiple variables or features, such as price, volume, and technical indicators. LSTM and CNN models can handle high-dimensional data efficiently, allowing them to capture and learn from the multi-dimensional relationships in the data.
 By combining LSTM and RNN models with CNNs, we can leverage the strengths of both architectures. The CNN can extract meaningful features from the input data, and the LSTM or RNN can effectively capture the temporal dependencies within those features. This combined approach has shown promising results in capturing complex patterns and improving the accuracy of stock price predictions. Overall, the motivation behind using LSTM, RNN, and LSTM-CNN models for stock price prediction is to leverage their ability to capture sequential patterns, handle high-dimensional data, learn complex relationships, and make accurate predictions based on historical price data.
-1.2 PROBLEM STATEMENT
+## 1.2 PROBLEM STATEMENT
 The objective of this project is to develop a predictive model for stock price movements based on historical stock market data. The problem can be defined as follows:
 1. Data Collection: Historical stock market data needs to be collected for the target stock(s) from reliable sources. This data should cover a significant time period to capture various market conditions and trends.
 2. Feature Selection: Relevant features, such as price-related attributes (opening, closing, high, low), trading volume, and technical indicators, need to be identified and extracted from the collected data. The selection of features should be based on their importance and relevance to stock price movements.
@@ -28,10 +28,10 @@ The objective of this project is to develop a predictive model for stock price m
 7. Predictive Performance: The effectiveness of the model will be assessed based on its ability to accurately predict the future price movements of the target stock(s). The model should demonstrate a reasonable level of accuracy and reliability in capturing the market trends.
 By addressing the problem statement, the aim is to develop a robust and accurate predictive model that can assist investors, traders, and financial professionals in making informed decisions related to stock market investments. The model should provide valuable insights into the potential direction of stock prices, enabling users to optimize their trading strategies and mitigate investment risks.
 
-LITERATURE SURVEY
-2.1 GENERAL
+## LITERATURE SURVEY
+## 2.1 GENERAL
 Stock price prediction is a challenging task in the financial industry, and the application of deep learning techniques such as recurrent neural networks (RNNs) and long short-term memory (LSTM) models has gained significant attention. In this literature survey, we explore ten noble studies that have utilized LSTM and RNN models for stock price prediction, highlighting their methodologies, datasets, and performance metrices.
-2.2 RELATED WORK
+## 2.2 RELATED WORK
 Jooweon Choi et al.[1], provided the multilayer perceptron-based model, the hybrid information mixing module, is applied to the stock price movement prediction to conduct a price fluctuation prediction experiment in a stock market with high volatility. In addition, the accuracy, Matthews correlation coefficient (MCC) and F1 score for the stock price movement prediction were used to verify the performance of the hybrid information mixing module.
 Disadvantages
 Increased Complexity: Implementing the HIMM technique adds complexity to the prediction model. It involves integrating different types of data sources, such as historical price data, news articles, social media sentiment, and other relevant information. Managing and processing diverse data types and sources can increase the complexity of the prediction model, making it more challenging to develop and maintain.
@@ -53,7 +53,7 @@ Disadvantage
 Model Complexity and Maintenance: Ensemble machine learning techniques can introduce additional complexity to the model. Combining multiple models and integrating feature engineering schemes can make the overall model more complex and difficult to maintain. The complexity may increase the time and effort required for model development, testing, and deployment. Additionally, as new data becomes available or market conditions change, updating and adapting the model can be challenging.
 False Signals and Market Volatility: Despite the potential effectiveness of candlestick charting and ensemble machine learning techniques, stock market trends are influenced by various factors, including market volatility and unexpected events. False signals and incorrect predictions can occur due to sudden market shifts, news events, or external factors that cannot be captured solely through historical price data and candlestick patterns. The model may struggle to handle extreme market conditions or periods of high volatility.
 
-III. PROPOSED SYSTEM
+## III. PROPOSED SYSTEM
 LSTM
 LSTM (Long Short-Term Memory) is a type of 
 recurrent neural network (RNN) architecture that is 
