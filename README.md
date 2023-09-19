@@ -53,6 +53,214 @@ Disadvantage
 Model Complexity and Maintenance: Ensemble machine learning techniques can introduce additional complexity to the model. Combining multiple models and integrating feature engineering schemes can make the overall model more complex and difficult to maintain. The complexity may increase the time and effort required for model development, testing, and deployment. Additionally, as new data becomes available or market conditions change, updating and adapting the model can be challenging.
 False Signals and Market Volatility: Despite the potential effectiveness of candlestick charting and ensemble machine learning techniques, stock market trends are influenced by various factors, including market volatility and unexpected events. False signals and incorrect predictions can occur due to sudden market shifts, news events, or external factors that cannot be captured solely through historical price data and candlestick patterns. The model may struggle to handle extreme market conditions or periods of high volatility.
 
+III. PROPOSED SYSTEM
+LSTM
+LSTM (Long Short-Term Memory) is a type of 
+recurrent neural network (RNN) architecture that is 
+designed to effectively capture long-term dependencies 
+and handle the vanishing gradient problem, which is 
+common in traditional RNNs. LSTM achieves this by 
+introducing memory cells and gating mechanisms that 
+control the flow of information.
+Here is an overview of how LSTM works:
+1. Memory Cells: LSTM introduces memory cells as the 
+core component. These cells can maintain information 
+over long sequences and determine when to remember 
+or forget information.
+Each memory cell has an internal state, which is updated 
+and passed along the sequence to retain relevant 
+information.
+2. Gates: LSTM utilizes gating mechanisms to regulate 
+the flow of information in and out of the memory cells.
+There are three types of gates in an LSTM unit:
+Forget Gate: Determines which information to 
+discard from the previous cell state.
+ft = σ (Wf* [ht-1, xt] + bf)
+ft = Forget gate for current timestamp.
+σ = Sigmoid layer returns 0(forget everything) 
+to 1(keep as it is).
+Wf = Weight matrix
+ht-1 = Hidden layer of previous timestamp 
+xt = Input of current timestamp.
+bf = Bias vector for forget gate.
+Input Gate: Decides which new information to 
+update in the current cell state.
+it = σ (Wi*[ht-1, xt] + bi) 
+Ct’ = tanh(Wc [ht-1, xt] + bc)
+tanh = tanh layer returns -1 to 1
+bc = bias vector for input gate.
+Output Gate: Controls the information to be 
+outputted from the current cell state.
+ot = σ (Wo*[ht-1, xt] + bo)
+ht = ot* tanh (Ct)
+bo = bias vector for output gate.
+Ct = cell state of current timestamp.
+3. Computation Steps: At each time step, an LSTM unit 
+takes three inputs: the current input, the previous hidden 
+state, and the previous cell state.
+The LSTM unit performs the following computations:
+Compute the forget gate value, which determines which 
+information to forget from the previous cell state.
+Compute the input gate value, which determines the 
+new information to update in the current cell state.
+Compute the candidate cell state, which is a 
+combination of the current input and the input gate 
+value. Update the current cell state by combining the 
+forget gate value with the previous cell state and adding 
+the candidate cell state. Compute the output gate value, 
+which determines the information to output from the 
+current cell state. Update the hidden state by applying 
+the output gate value to the current cell state.
+4. Training:
+During the training process, LSTM models are 
+optimized to minimize a specific loss function, such as 
+mean squared error (MSE), by adjusting the parameters 
+of the network. This is typically done using 
+backpropagation through time, where the gradients of 
+the loss function are calculated and used to update the 
+weights and biases of the LSTM units.
+5. Prediction:
+After training, the LSTM model can be used to make 
+predictions on new, unseen data.
+The model takes in the input sequence, and the 
+computations described above are performed iteratively 
+to generate predictions for each time step.
+LSTM's ability to maintain and update the memory 
+cells, along with the gating mechanisms, allows it to 
+capture long-term dependencies and handle information 
+flow effectively over time. This makes LSTM wellsuited for tasks involving sequential data, such as stock 
+price prediction, natural language processing, and time 
+series analysis.
+RNN
+RNN (Recurrent Neural Network) is a type of neural 
+network designed to process sequential data by 
+capturing and utilizing information from previous steps. 
+It has a recurrent structure that allows it to maintain a 
+hidden state that carries information from previous steps 
+and pass it along to the next steps.
+Here is an overview of how RNN works:
+1. Sequential Data Processing: RNN is designed to 
+process sequential data, such as time series or text data, 
+where the order of the input elements matters.
+Each element in the sequence is processed one at a time, 
+and the hidden state is updated and passed along to the 
+next step.
+2. Hidden State: The hidden state is a vector that 
+summarizes the information from previous steps.
+At each time step, the current input and the previous 
+hidden state are combined to compute the new hidden 
+state.
+3. Activation Function: RNN units typically use an 
+activation function, such as the hyperbolic tangent 
+(tanh) or the rectified linear unit (ReLU), to introduce 
+non-linearity to the hidden state computation.
+The activation function introduces non-linear 
+transformations to the inputs, allowing the RNN to learn 
+complex patterns and relationships.
+4. Weight Sharing: One of the key features of RNN is 
+weight sharing, where the same set of weights and 
+biases are used at each time step.
+This allows the RNN to share information across 
+different steps, enabling it to capture dependencies and 
+patterns in the sequential data.
+5. Training: During the training process, an RNN model 
+is optimized to minimize a specific loss function, such 
+as mean squared error (MSE) or cross-entropy loss.
+The parameters of the network, including the weights 
+and biases, are updated using gradient descent and 
+backpropagation through time.
+Backpropagation through time calculates gradients by 
+propagating errors from the output back to the previous 
+time steps.
+6. Prediction: After training, an RNN model can be used 
+to make predictions on new, unseen sequential data.
+The model takes in the input sequence and iteratively 
+processes each element, updating the hidden state and 
+producing an output at each step.
+The final output can be used for prediction or 
+classification tasks.
+RNNs are well-suited for tasks involving sequential 
+data because they can capture and utilize information 
+from previous steps. However, traditional RNNs can 
+suffer from the vanishing gradient problem, where the 
+gradients diminish as they propagate back in time, 
+making it challenging to capture long-term 
+dependencies. 
+Overall, RNNs are widely used in various applications, 
+including natural language processing, speech 
+recognition, machine translation, and time series 
+analysis, where the order and temporal dependencies of 
+the data play a crucial role.
+CNN
+CNNs are primarily designed for image data, where 
+they excel at capturing spatial patterns. However, CNNs 
+can also be adapted for stock price prediction by treating 
+the sequential data as a 1D grid, similar to a time series.
+Here is a general approach to using CNNs for stock 
+price prediction:
+1. Data Representation: Convert the sequential stock 
+price data into a 1D grid-like format, where the y-axis 
+represents the stock price values, and the x-axis 
+represents time steps.
+Each data point in the sequence becomes a pixel in the 
+grid, forming a 1D image.
+2. Data Preprocessing: Preprocess the stock price data 
+by handling missing values, normalizing the values, and 
+splitting the data into training and testing sets.
+3. Feature Extraction: Apply 1D convolutional layers to 
+the stock price data grid.
+The convolutional filters slide across the grid, capturing 
+local patterns and extracting features related to price 
+movements and trends.
+The output of the convolutional layers is a set of feature 
+maps.
+4. Pooling: Apply pooling layers, such as max pooling, 
+to reduce the dimensionality of the feature maps.
+Pooling helps summarize the most important features 
+while reducing noise and computational requirements.
+5. Flattening and Fully Connected Layers: Flatten the 
+pooled feature maps into a 1D vector.
+Pass the flattened vector through fully connected layers 
+to learn high-level representations and make 
+predictions.
+6. Training and Prediction: Train the CNN model on the 
+training data using an appropriate loss function, such as 
+mean squared error (MSE), and an optimizer.
+Adjust the model's weights and biases using 
+backpropagation and gradient descent.
+Use the trained model to make predictions on the testing 
+data.
+It's important to note that while CNNs can be applied to 
+stock price prediction, they may not capture all the 
+nuanced patterns and dependencies in the data. Stock 
+prices are influenced by a wide range of factors, 
+including economic indicators, news events, and market 
+sentiments, which may require additional information 
+beyond the price sequence. Therefore, CNNs for stock 
+price prediction is combined with other techniques 
+LSTM (Long Short-Term Memory), to capture temporal 
+dependencies and capture long-term patterns.
+By treating the stock price sequence as a 1D grid and 
+leveraging the convolutional and pooling operations of 
+CNNs, it is possible to extract relevant features and 
+learn patterns that can contribute to predicting future 
+stock price movements.
+LSTM AND RNN
+LSTM and RNN models leverage their recurrent nature 
+and the ability to capture dependencies across time steps 
+to model and analyse sequential data effectively. The 
+memory cell and gating mechanisms in LSTM help to 
+overcome the vanishing gradient problem often 
+encountered in traditional RNNs, allowing then to 
+capture long-term dependencies more effectively.
+LSTM AND CNN
+We will explore the combination of LSTM and 
+CNN models for stock price prediction. The CNN 
+component will be responsible for feature extraction 
+and LSTM component will capture the temporal 
+dependencies within those features. This hybrid model 
+will be trained on the training data and evaluated for its 
+predictive performance
 
 
 
