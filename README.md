@@ -51,7 +51,7 @@ Disadvantage
 Model Complexity and Maintenance: Ensemble machine learning techniques can introduce additional complexity to the model. Combining multiple models and integrating feature engineering schemes can make the overall model more complex and difficult to maintain. The complexity may increase the time and effort required for model development, testing, and deployment. Additionally, as new data becomes available or market conditions change, updating and adapting the model can be challenging.
 False Signals and Market Volatility: Despite the potential effectiveness of candlestick charting and ensemble machine learning techniques, stock market trends are influenced by various factors, including market volatility and unexpected events. False signals and incorrect predictions can occur due to sudden market shifts, news events, or external factors that cannot be captured solely through historical price data and candlestick patterns. The model may struggle to handle extreme market conditions or periods of high volatility.
 
-# III. PROPOSED SYSTEM
+# PROPOSED SYSTEM
 LSTM
 LSTM (Long Short-Term Memory) is a type of 
 recurrent neural network (RNN) architecture that is 
